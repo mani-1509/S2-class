@@ -5,7 +5,11 @@
   />
 </head>
 
-{% extends "base.html" %}{% block content %}
-
-<h1>hello!</h1>
+{% extends "base.html" %}{% block content %} {% if not logged_in %}
+<div class="loginContainer">
+  <div class="loginWarpper">
+    <a class="login" href="/login">LOG IN</a>
+    {% endif %}
+  </div>
+</div>
 {% endblock %}
