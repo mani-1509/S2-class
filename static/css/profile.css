@@ -45,7 +45,7 @@ form {
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 10px;
+  gap: 5px;
 }
 .edit_profile {
   padding: 10px 18px;
@@ -53,6 +53,20 @@ form {
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
+}
+.profileLogout {
+  padding: 6px 10px;
+  background-color: transparent;
+  border: 2px solid #a38ffd;
+  text-decoration: none;
+  border-radius: 500px;
+  font-size: 13px;
+  color: #a38ffd;
+  transition: 0.5s;
+}
+.profileLogout:hover {
+  color: #fff;
+  background-color: #a38ffd;
 }
 .profile-image {
   border-radius: 50%;
@@ -62,18 +76,19 @@ form {
 }
 
 .profileBioContainer {
-  width: 100%;
+  margin: auto;
+  width: 55%;
   height: 150px;
   display: flex;
   align-items: start;
-  justify-content: center;
+  justify-content: start;
 }
 .profileBio {
   font-size: 28px;
-  color: rgb(22, 22, 22);
+  color: rgb(75, 75, 75);
   font-style: italic;
   font-weight: normal;
-  margin-left: -700px;
+  /* margin-left: -700px; */
   margin-top: 20px;
 }
 .skillsContainer,
