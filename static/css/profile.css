@@ -1,0 +1,50 @@
+form {
+  margin-top: 60px;
+}
+.profile-container {
+  margin-top: 100px;
+  width: 90%;
+  /* margin: auto; */
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.profile-header {
+  position: relative;
+}
+
+.profile-banner {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.profile-info {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  border: 5px solid #fff;
+}
+
+.skills,
+.interests {
+  margin: 20px 0;
+}
+
+.skill,
+.interest {
+  display: inline-block;
+  background-color: #ddd;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+}
