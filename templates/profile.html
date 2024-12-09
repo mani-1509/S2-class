@@ -13,32 +13,42 @@
       src="{{ url_for('static', filename='images/banner.jpg') }}"
       alt="Profile Banner"
     />
+    <div class="usernameContainer">
+      <h1 class="profileUsername">{{ user.username }}</h1>
+    </div>
     <div class="profile-info">
       <img
         class="profile-image"
         src="{{ url_for('static', filename=user.profile_image or 'images/default.jpg') }}"
         alt="Profile Image"
       />
-      <h1>{{ user.username }}</h1>
-      <p>{{ user.bio or "This user hasn't added a bio yet." }}</p>
-      <a href="/edit_profile">edit</a>
+      <p></p>
+      <a class="edit_profile" href="/edit_profile">Edit you profile</a>
     </div>
   </div>
 
   <!-- Skills and Interests -->
   <div class="profile-details">
-    <h2>Skills</h2>
-    <div class="skills">
-      {% for skill in skills %}
-      <span class="skill">{{ skill }}</span>
-      {% endfor %}
+    <div class="profileBioContainer">
+      <h1 class="profileBio">
+        {{ user.bio or "This user hasn't added a bio yet." }}
+      </h1>
     </div>
-
-    <h2>Interests</h2>
-    <div class="interests">
-      {% for interest in interests %}
-      <span class="interest">{{ interest }}</span>
-      {% endfor %}
+    <div class="skillsContainer">
+      <h2 class="skillsText">Skills:</h2>
+      <div class="skills">
+        {% for skill in skills %}
+        <span class="skill">{{ skill }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="interestsContainer">
+      <h2>Interests:</h2>
+      <div class="interests">
+        {% for interest in interests %}
+        <span class="interest">{{ interest }}</span>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
