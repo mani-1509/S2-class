@@ -7,22 +7,38 @@
 {% extends "base.html" %}{% block content %}
 <div class="login_container">
   <div class="login_warpper">
-    <h1>Login</h1>
+    <h1 class="loginText">Login</h1>
     <br />
     <form method="POST" action="/login" class="boxxs">
       <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required /><br />
+      <input
+        class="loginUsername"
+        type="text"
+        id="username"
+        name="username"
+        placeholder="UserName"
+        required
+      /><br />
       <br />
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required /><br />
+      <input
+        class="loginPassword"
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+        minlength="8"
+        required
+      /><br />
       <br />
-      <button type="submit">Login</button><br /><br />
+      <!-- <p class="loginPassText">The password must be atleast 8 characters</p> -->
+      <p>Don't have an account? <a href="/signup">Register</a></p>
+      <button class="loginBtn hov" type="submit">Log In</button><br /><br />
     </form>
     {% if error %}
     <p style="color: red">{{ error }}</p>
     <br /><br />
     {% endif %}
-    <p>Don't have an account? <a href="/signup">Register</a></p>
   </div>
 </div>
 {% endblock %}

@@ -7,22 +7,55 @@
   background: linear-gradient(135deg, #000fff, #ff00bf);
 }
 .login_warpper {
+  border-radius: 20px;
   text-align: center;
-  border-color: black;
-  border-style: solid;
-  border-width: 2px;
+  border: none;
+  box-shadow: 10px 10px 10px 8px rgba(0, 0, 0, 0.1);
   height: 300px;
   width: 300px;
-  padding: 20px;
+  height: auto;
+  width: auto;
+  padding: 50px 30px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
-.loginContainer {
-  display: none;
-}
+
 .loginUsername,
 .loginPassword {
   padding: 10px 18px;
   background-color: transparent;
   border: 2px solid blue;
   border-radius: 500px;
+  text-align: center;
 }
-input::placeholder
+input:not(placeholder-shown) {
+  background-color: transparent;
+}
+::placeholder {
+  text-align: center;
+  color: #b0b0b0;
+  font-family: sans-serif;
+}
+input:invalid:not(:placeholder-shown) {
+  border: 2px solid red;
+}
+input:valid:not(:placeholder-shown) {
+  border: 2px solid blue;
+}
+input:invalid ~ button[type="submit"] {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.loginBtn {
+  background-color: blue;
+  color: #fff;
+  padding: 10px 18px;
+
+  border: none;
+  border-radius: 500px;
+}
+.loginBtn:hover {
+  transition: 0.6s;
+  background-color: rgb(0, 0, 195);
+  /* background-color: rgb(168, 245, 255); */
+}
