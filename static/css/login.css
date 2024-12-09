@@ -1,0 +1,20 @@
+.login_container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #000fff, #ff00bf);
+}
+.login_warpper {
+  text-align: center;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  height: 300px;
+  width: 300px;
+  padding: 20px;
+}
+.loginContainer {
+  display: none;
+}

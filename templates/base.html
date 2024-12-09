@@ -9,11 +9,17 @@
       href="{{ url_for('static', filename='css/base.css') }}"
     />
   </head>
-  <a href="/">Home</a>
-  <a href="/login">login</a>
-  <a href="/signup">signup</a>
   <body>
+    <div class="loginContainer">
+      <div class="loginWarpper">
+        <a class="login" href="/login">LOG IN</a>
+      </div>
+    </div>
+    <a href="/">Home</a>
+    <a href="/login">login</a>
+    <a href="/signup">signup</a>
+    <!-- <a href="/test">3Dmodel</a> -->
     <main>{% block content %}{% endblock %}</main>
-    <script src="{{ url_for('static', filename='js/scripts.css') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/scripts.js') }}"></script> -->
   </body>
 </html>
