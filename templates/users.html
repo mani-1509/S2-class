@@ -1,0 +1,30 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/users.css') }}"
+  />
+</head>
+{% extends "base.html" %} {% block content %}
+<h1>All Users</h1>
+<form method="GET" action="{{ url_for('users') }}">
+  <input
+    type="text"
+    name="search"
+    placeholder="Search users..."
+    value="{{ request.args.get('search', '') }}"
+  />
+  <button type="submit">Search</button>
+</form>
+<ul>
+  {% for user in users %}
+  <li>
+    {{ user.username }} {% if user.id in unread_counts and
+    unread_counts[user.id] > 0 %}
+    <strong>(Unread: {{ unread_counts[user.id] }})</strong>
+    {% endif %}
+    <a href="{{ url_for('chat', receiver_id=user.id) }}">Message</a>
+  </li>
+  {% endfor %}
+</ul>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
