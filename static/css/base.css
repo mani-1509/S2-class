@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 .loginContainer {
+  z-index: 1000;
   position: fixed;
   bottom: 8em;
   right: 0;
@@ -20,4 +21,152 @@
   font-size: 22px;
   color: #fff;
   text-decoration: none;
+}
+
+/* nav */
+
+.navbar {
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  padding: 10px 20px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  animation: scaleIn 1s ease-in-out;
+}
+
+.nav-links {
+  display: flex;
+  gap: 17px;
+}
+
+.nav-links li {
+  list-style: none;
+  padding: 10px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #020202;
+  font-size: 18px;
+  position: relative;
+}
+.nav-links li a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: -3px;
+  height: 4px;
+  width: 0;
+  border-radius: 500px;
+  background-color: blueviolet;
+  transition: 0.55s;
+}
+.nav-links li a:hover::before {
+  width: 108%;
+}
+
+.nav-profile-image {
+  height: 40px;
+  width: 40px;
+  border-radius: 500px;
+  margin-right: 10px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  z-index: 1001;
+}
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background: #000;
+  transition: all 0.3s;
+}
+.nav-links.active ~ .nav-profile-image {
+  display: none;
+}
+.hamburger.open .span1 {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open .span2 {
+  opacity: 0;
+}
+
+.hamburger.open .span3 {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background: #000;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    gap: 15px;
+    animation: fadeIn 0.5s ease;
+  }
+  .nav-profile-image {
+    display: none;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* main-body */
+
+.allContainer {
+  margin-top: 60px;
+}
+.nav-profile-image {
+  height: 40px;
+  width: 40px;
+  border-radius: 500px;
 }

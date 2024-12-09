@@ -10,16 +10,33 @@
     />
   </head>
   <body>
-    <div class="loginContainer">
-      <div class="loginWarpper">
-        <a class="login" href="/login">LOG IN</a>
-      </div>
+    <div class="navcontainer">
+      <nav class="navbar">
+        <h1 class="logo">LOGO</h1>
+        <div class="hamburger" id="hamburger">
+          <span class="span1"></span>
+          <span class="span2"></span>
+          <span class="span3"></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/users">Sta Mates</a></li>
+        </ul>
+        {% if logged_in %}
+        <a href="/profile"
+          ><img
+            class="nav-profile-image"
+            src="{{ url_for('static', filename=user.profile_image or 'images/default.jpg') }}"
+            alt="Profile Image"
+        /></a>
+        {% endif %}
+      </nav>
     </div>
-    <a href="/">Home</a>
-    <a href="/login">login</a>
-    <a href="/signup">signup</a>
+
+    <!-- <a href="/login">login</a> -->
+    <!-- <a href="/signup">signup</a> -->
     <!-- <a href="/test">3Dmodel</a> -->
-    <main>{% block content %}{% endblock %}</main>
-    <!-- <script src="{{ url_for('static', filename='js/scripts.js') }}"></script> -->
+    <main class="allContainer">{% block content %}{% endblock %}</main>
+    <script src="{{ url_for('static', filename='js/nav.js') }}"></script>
   </body>
 </html>
