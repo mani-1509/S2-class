@@ -116,22 +116,6 @@ def edit_profile():
     
     return render_template('edit_profile.html', user=user , logged_in=logged_in)
 
-@app.route('/users')
-def users():
-    if 'user_id' not in session:
-        return redirect(url_for('login'))
-
-    logged_in = 'user_id' in session
-    user = None
-    if logged_in:
-        user = User.query.get(session['user_id'])
-
-    search_query = request.args.get('search', '')
-    if search_query:
-        users = User.query.filter(User.username.contains(search_query)).all()
-    else:
-        users = User.query.all()
-    return render_template('users.html', logged_in=logged_in , users=users , user = user)
 
 @app.route('/chat/<int:receiver_id>')
 def chat(receiver_id):
@@ -176,6 +160,40 @@ def handle_join_room(data):
     room = f"chat_{min(int(session['user_id']), int(data['receiver_id']))}_{max(int(session['user_id']), int(data['receiver_id']))}"
 
     join_room(room)
+    
+    emit('status', {'msg': 'Joined room: ' + room}, room=room)
+
+
+@app.route('/users')
+def users():
+
+    logged_in = 'user_id' in session
+    if not logged_in:
+        return redirect(url_for('login'))  
+    
+    user = User.query.get(session['user_id'])
+    
+    search_query = request.args.get('search', '')
+    if search_query:
+        users = User.query.filter(
+            User.username.contains(search_query),
+            User.id != session['user_id']
+        ).all()
+    else:
+        users = User.query.filter(User.id != session['user_id']).all()  
+    
+    skills = user.skills.split(",") if user.skills else []
+    interests = user.interests.split(",") if user.interests else []
+
+    return render_template(
+        'users.html',
+        user=user,
+        skills=skills,
+        interests=interests,
+        logged_in=logged_in,
+        users=users
+    )
+
 
 if __name__ == "__main__":
     socketio.run(app, debug=True, host='0.0.0.0', port=8000)
