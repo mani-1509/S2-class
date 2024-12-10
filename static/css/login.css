@@ -11,8 +11,6 @@
   text-align: center;
   border: none;
   box-shadow: 10px 10px 10px 8px rgba(0, 0, 0, 0.1);
-  height: 300px;
-  width: 300px;
   height: auto;
   width: auto;
   padding: 50px 30px;
@@ -57,5 +55,4 @@ input:invalid ~ button[type="submit"] {
 .loginBtn:hover {
   transition: 0.6s;
   background-color: rgb(0, 0, 195);
-  /* background-color: rgb(168, 245, 255); */
 }
