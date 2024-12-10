@@ -12,7 +12,7 @@
   <body>
     <div class="navcontainer">
       <nav class="navbar">
-        <h1 class="logo">LOGO</h1>
+        <h1 class="logo">SkillShare</h1>
         <div class="hamburger" id="hamburger">
           <span class="span1"></span>
           <span class="span2"></span>
@@ -20,13 +20,14 @@
         </div>
         <ul class="nav-links" id="nav-links">
           <li><a href="/">Home</a></li>
-          <li><a href="/users">Sta Mates</a></li>
+          <!-- <li><a href="/users">Sta Mates</a></li> -->
+          <li><a href="/users">users</a></li>
         </ul>
         {% if logged_in %}
         <a href="/profile"
           ><img
             class="nav-profile-image"
-            src="{{ url_for('static', filename=user.profile_image or 'images/default.jpg') }}"
+            src="{{ url_for('static', filename=user.profile_image or 'images/default_profile.jpg') }}"
             alt="Profile Image"
         /></a>
         {% endif %}
