@@ -5,22 +5,39 @@
   />
 </head>
 {% extends "base.html" %}{% block content %}
-<div class="out">
-  <div class="in">
-    <h1>Signup</h1>
-    <form method="POST" action="/signup">
+<div class="signupContainer">
+  <div class="signupWapper">
+    <h1 class="signupText">Signup</h1>
+    <br />
+    <form method="POST" action="/signup" class="boxxs">
       <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required />
+      <input
+        class="signupUsername"
+        type="text"
+        id="username"
+        name="username"
+        placeholder="UserName"
+        required
+      /><br />
       <br />
       <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required />
+      <input
+        class="signupPassword"
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+        required
+      /><br />
       <br />
-      <button type="submit">Signup</button>
+      <p>Already have an account? <a href="/login">Login here</a>.</p>
+      <button class="signupBtn" type="submit">Signup</button>
+      <br /><br />
     </form>
     {% if error %}
     <p style="color: red">{{ error }}</p>
+    <br /><br />
     {% endif %}
-    <p>Already have an account? <a href="/login">Login here</a>.</p>
   </div>
 </div>
 {% endblock %}
