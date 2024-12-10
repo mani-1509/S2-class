@@ -5,11 +5,261 @@
   />
 </head>
 
-{% extends "base.html" %}{% block content %} {% if not logged_in %}
+{% extends "base.html" %} {% block content %} {% if not logged_in %}
 <div class="loginContainer">
   <div class="loginWarpper">
     <a class="login" href="/login">LOG IN</a>
-    {% endif %}
   </div>
 </div>
-{% endblock %}
+{% endif %}
+<div class="homeContainer">
+  <div class="header">
+    <div class="hero_main_txt">
+      <h1>
+        <span class="gradient-text">Connect & Share</span> <br />
+        Your Skills With Others
+      </h1>
+      <div class="bookImgContainer"><div class="bgEff"></div></div>
+      <h2>
+        A platform where you can interact, showcase your expertise, and learn
+        from others around the globe.
+      </h2>
+      <!-- <button class="explore_btn">Join Now</button> -->
+    </div>
+  </div>
+
+  <!-- Metrics Section -->
+  <!-- <section class="metrics-section">
+    <div class="metric">
+      <span class="icon">&#9733;</span>
+      <span>4.9 User Satisfaction</span>
+    </div>
+    <div class="metric">
+      <span class="icon">&#128101;</span>
+      <span>10K+ Active Users</span>
+    </div>
+    <div class="metric">
+      <span class="icon">&#128218;</span>
+      <span>5K+ Skills Shared</span>
+    </div>
+  </section> -->
+
+  <!-- Collaboration Section -->
+  <div class="collaborationContainer">
+    <div class="collaborationInfo">
+      <h1 class="collaborationTitle">
+        Join Thousands of Creatives, Professionals & Learners
+      </h1>
+      <p>
+        Start building meaningful relationships that inspire you to learn from
+        others, share your knowledge, and grow both personally and
+        professionally in a collaborative and supportive environment.
+      </p>
+      <a href="/users">Get Started</a>
+    </div>
+    <div class="collaborationImage">
+      <img
+        src="https://www.cutebrains.com/wp-content/uploads/2024/08/slider1-286x300.jpg"
+        alt=""
+      />
+    </div>
+  </div>
+
+    <!-- Features Section -->
+
+    <div class="wcu">
+      <div class="con">
+        <div class="context">
+          <div class="text">
+            <h2>Why You Should Choose Our Platform?</h1>
+            <p>
+              Our platform empowers individuals to showcase their skills, connect
+              with professionals, and grow their expertise through collaboration
+              and learning opportunities.
+            </p>
+            <button class="cta-button">Learn More</button>
+          </div>
+          <div class="illustration">
+            <img
+            class="illImage"
+            src="https://img.freepik.com/premium-psd/book-with-brain-top-it-with-word-it_904424-148.jpg"
+            />
+          </div>
+        </div>
+        <div class="feature">
+          <img class="featureLogo" src="https://images.samsung.com/is/image/samsung/assets/us/smart-switch/images/quick_share.png?nocache" alt="">
+          <h2>Share Your Skills</h2>
+          <p>
+            Showcase your expertise by displaying your skills and projects on your
+            profile.
+          </p>
+        </div>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <img class="featureLogo" src="https://cdn-icons-png.flaticon.com/512/5721/5721507.png" alt="">
+          <h2>Interact With Others</h2>
+          <p>
+            Chat and collaborate with users who share your interests or want to
+            learn from you.
+          </p>
+        </div>
+        <div class="feature">
+          <img class="featureLogo" src="https://cdn-icons-png.flaticon.com/512/3773/3773377.png" alt="">
+          <h2>Grow Your Network</h2>
+          <p>
+            Expand your professional and personal network by connecting with
+            like-minded people.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+  <div class="faq">
+    <div class="faq-container">
+      <div class="faq-header">
+          <div class="decorative-circle light-green top-left"></div>
+          <div class="content">
+              <div class="title">FAQ Page</div>
+          </div>
+          <div class="decorative-circle yellow bottom-right"></div>
+      </div>
+    </div>
+  
+    <!-- FAQ'S -->
+    <div class="faq-flex">
+        <div class="faq-section">
+            <h1>Frequently Asked Questions</h1>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Do you provide student support?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Participate in our live webinars and workshops conducted by experts in the field. These sessions cover advanced topics, provide hands-on experiences, and offer opportunities for direct interaction with instructors.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do I update my profile information?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Log into your account, navigate to the profile settings, and update your information. Changes will be saved automatically.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What is the benefit of your courses?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Our courses offer expert-led guidance, practical projects, and a flexible schedule tailored to your needs.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>What is your return policy?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    We offer a full refund within 30 days of purchase if you're unsatisfied with the course.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>How do I enroll in a course?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Choose a course from our catalog, click 'Enroll,' and complete the checkout process.
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+    <!-- Newsletter Section -->
+    <div class="newsletter-container">
+      <div class="subscription-section">
+        <h1 class="title">
+          <span class="highlight">Stay Connected</span> With Us
+        </h1>
+        <p class="subheader">
+          Subscribe to get updates, tips, and opportunities to grow your skills.
+        </p>
+        <div class="subscription-form">
+          <input
+            type="email"
+            class="email-input"
+            placeholder="Enter your email"
+          />
+          <button class="subscribe-button">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section brand">
+          <h1 class="footer-title">SkillShare Connect</h1>
+          <p>
+            A community-driven platform where skills meet collaboration. Start
+            your journey with us today!
+          </p>
+          <div class="social-icons">
+            <a href="#" class="icon instagram" aria-label="Instagram"></a>
+            <a href="#" class="icon linkedin" aria-label="LinkedIn"></a>
+            <a href="#" class="icon twitter" aria-label="Twitter"></a>
+          </div>
+        </div>
+        <div class="footer-section contact">
+          <h2>Contact</h2>
+          <p>
+            <a href="mailto:support@skillshareconnect.com"
+              >support@skillshareconnect.com</a
+            >
+          </p>
+          <p><a href="tel:+123456789">+123 456 789</a></p>
+        </div>
+        <div class="footer-section office">
+          <h2>Office Hours</h2>
+          <p>Monday - Friday: 9 AM - 6 PM</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy;2024 SkillShare. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+<script>
+function toggleFaq(questionElement) {
+  const faqItem = questionElement.parentElement;
+  const answer = faqItem.querySelector('.faq-answer');
+  const icon = faqItem.querySelector('.icon');
+
+  // Check if the answer is already visible
+  const isVisible = answer.classList.contains('visible');
+
+  // Collapse all other answers
+  document.querySelectorAll('.faq-answer').forEach(ans => {
+      ans.classList.remove('visible');
+  });
+  document.querySelectorAll('.icon').forEach(icn => {
+      icn.textContent = '+';
+  });
+
+  // Toggle the clicked answer
+  if (!isVisible) {
+      answer.classList.add('visible');
+      icon.textContent = '-';
+  } else {
+      answer.classList.remove('visible');
+      icon.textContent = '+';
+  }
+}
+</script>
+  {% endblock %}
+</div>
