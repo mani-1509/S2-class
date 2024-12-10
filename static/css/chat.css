@@ -1,27 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
-#chat-box{
-    margin: 1rem;
-    padding: 1.5rem;
+@import url("https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap");
+#chat-box {
+  margin: 1rem;
+  padding: 1.5rem;
+  border: 2px solid #704fff;
+  border-radius: 10px;
+  height: 300px;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
-.chat_sec{
-    min-height: 100vh;
-    padding: 16px;
-    background-image: radial-gradient(#fefdff,#bb00ff);
+.chat_sec {
+  min-height: 100vh;
+  padding: 16px;
+  background-image: url("https://mevivu.com/wp-content/uploads/2021/06/feat1.png");
+  background-color: #a38ffd;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-.username_h{
-    margin: 1rem;
-    font-family: "Julius Sans One", serif;
-    font-weight: bolder;
-    font-style: normal;
+.username_h {
+  margin: auto;
+  width: fit-content;
+  font-family: "Julius Sans One", serif;
+  font-weight: 100;
+  font-style: normal;
+  color: #fff;
 }
-.message_div{
-   display: flex;
-   justify-content: center;
+#message {
+  width: 60%;
+  color: dimgray;
+  background-color: transparent;
+  border: 2px solid #704fff;
+  border-radius: 5px;
+  padding: 5px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
-.message_input{
-   width: 100%;
+.message_div {
+  display: flex;
+  justify-content: center;
 }
-.message_div{
-    height: 32px;
-    /* width: 68px; */
+.chatBtn {
+  color: #fff;
+  background-color: blue;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 5px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+.chatBtn:hover {
+  color: #fff;
+  background-color: rgb(0, 0, 174);
+}
+.message_input {
+  width: 100%;
+}
+.message_div {
+  height: 32px;
+}
+.userMsg {
+  text-align: right;
+  /* width: fit-content; */
+}
+.you {
+  background-color: lightgreen;
+}
+.receiver {
+  background-color: rgb(125, 203, 229);
 }
