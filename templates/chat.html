@@ -1,33 +1,46 @@
 <head>
   <link
     rel="stylesheet"
-    href="{{ url_for('static', filename='css/edit_profile.css') }}"
+    href="{{ url_for('static', filename='css/chat.css') }}"
   />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
 </head>
-{% extends "base.html" %} {% block content %}
-<h1>Chat with {{ receiver.username }}</h1>
-<div
-  id="chat-box"
-  style="
-    border: 1px solid #ccc;
-    height: 300px;
-    overflow-y: scroll;
-    margin-bottom: 10px;
-  "
->
-  {% for message in messages %}
-  <div>
-    {% if message.sender_id == session['user_id'] %}
-    <strong>You:</strong> {{ message.content }} {% else %}
-    <strong>{{ receiver.username }}:</strong> {{ message.content }} {% endif %}
+<div class="chat_sec">
+  {% extends "base.html" %} {% block content %}
+  <h1 class="username_h">Chat with {{ receiver.username }}</h1>
+  <div
+    id="chat-box"
+    style="
+      border: 1px solid #ccc;
+      height: 300px;
+      overflow-y: scroll;
+      margin-bottom: 10px;
+    "
+  >
+    {% for message in messages %}
+    <div>
+      {% if message.sender_id == session['user_id'] %}
+      <strong>You:</strong> {{ message.content }} {% else %}
+      <strong>{{ receiver.username }}:</strong> {{ message.content }} {% endif
+      %}
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
+
+  <div class="message_div">
+    <div>
+      <input
+        class="message_input"
+        type="hidden"
+        id="receiver_id"
+        value="{{ receiver.id }}"
+      />
+    </div>
+    <textarea id="message" placeholder="Type your message here"></textarea>
+    <div >
+      <button class="message_div" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
 </div>
-
-<input type="hidden" id="receiver_id" value="{{ receiver.id }}" />
-<textarea id="message" placeholder="Type your message here"></textarea>
-<button onclick="sendMessage()">Send</button>
-
 <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
 {% endblock %}

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+#chat-box{
+    margin: 1rem;
+    padding: 1.5rem;
+}
+.chat_sec{
+    min-height: 100vh;
+    padding: 16px;
+    background-image: radial-gradient(#fefdff,#bb00ff);
+}
+.username_h{
+    margin: 1rem;
+    font-family: "Julius Sans One", serif;
+    font-weight: bolder;
+    font-style: normal;
+}
+.message_div{
+   display: flex;
+   justify-content: center;
+}
+.message_input{
+   width: 100%;
+}
+.message_div{
+    height: 32px;
+    /* width: 68px; */
+}
