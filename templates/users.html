@@ -3,28 +3,58 @@
     rel="stylesheet"
     href="{{ url_for('static', filename='css/users.css') }}"
   />
+  <script
+    src="https://kit.fontawesome.com/2f7d7229fb.js"
+    crossorigin="anonymous"
+  ></script>
 </head>
+
 {% extends "base.html" %} {% block content %}
-<h1>All Users</h1>
-<form method="GET" action="{{ url_for('users') }}">
+<form method="GET" action="{{ url_for('users') }}" class="search-form">
   <input
     type="text"
     name="search"
-    placeholder="Search users..."
+    placeholder="Search participants by name"
     value="{{ request.args.get('search', '') }}"
   />
   <button type="submit">Search</button>
 </form>
-<ul>
+<div class="users-container">
   {% for user in users %}
-  <li>
-    {{ user.username }} {% if user.id in unread_counts and
-    unread_counts[user.id] > 0 %}
-    <strong>(Unread: {{ unread_counts[user.id] }})</strong>
-    {% endif %}
-    <a href="{{ url_for('chat', receiver_id=user.id) }}">Message</a>
-  </li>
+  <div class="user-card">
+    <div class="user-header">
+      <img
+        class="profile-image"
+        src="{{ url_for('static', filename=user.profile_image or 'images/default_profile.jpg') }}"
+        alt="Profile Image"
+      />
+      <div class="user-info-container">
+        <div class="user-info">
+          <h3>{{ user.username }}</h3>
+          <span class="role">{{ user.role or "No Role" }}</span>
+        </div>
+        <div class="messageDiv">
+          <a class="message" href="{{ url_for('chat', receiver_id=user.id) }}">
+            Message
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="skills-interests">
+      <p>Skills:</p>
+      <div class="skills">
+        {% for skill in user.skills.split(',') %}
+        <span>{{ skill }}</span>
+        {% endfor %}
+      </div>
+      <p>Interests:</p>
+      <div class="interests">
+        {% for interest in user.interests.split(',') %}
+        <span class="interest">{{ interest }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
   {% endfor %}
-</ul>
-<a href="{{ url_for('logout') }}">Logout</a>
+</div>
 {% endblock %}

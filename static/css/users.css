@@ -1,0 +1,123 @@
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  background: linear-gradient(#bfb1ff, #8e75ff);
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.search-form input {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-form button {
+  margin-left: 10px;
+  padding: 10px;
+  background-color: #a38ffd;
+
+  border: 2px solid #7a5dff;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.users-container {
+  margin: 0 15%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.user-card {
+  background-color: #ededed;
+  border: 2px solid #7a5dff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.user-info-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.user-info-container h3 {
+  margin: 0;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-info .role,
+.user-info .team-status {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-top: 3px;
+}
+
+.skills-interests {
+  margin-top: 10px;
+}
+.skills-interests p {
+  text-decoration: underline;
+}
+
+.skills,
+.interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.skills span,
+.interests span {
+  background-color: #a38ffd;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  color: #333;
+}
+.messageDiv {
+  text-align: center;
+}
+.message {
+  border: 2px solid #7a5dff;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #a38ffd;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+.message:hover {
+  background-color: #8b74ef;
+}
