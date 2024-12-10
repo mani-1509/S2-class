@@ -94,7 +94,9 @@ Make sure you have the following installed:
 
 ### Landing Page
 
-![Landing Page](https://res.cloudinary.com/dg0u5ptwr/image/upload/v1732971088/gric5gjvrfuxzsgnmylq.jpg)
+<!-- ![Landing Page](https://res.cloudinary.com/dg0u5ptwr/image/upload/v1732971088/gric5gjvrfuxzsgnmylq.jpg) -->
+
+Yet To Designs!!!
 
 ### User Profile
 
