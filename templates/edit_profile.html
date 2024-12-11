@@ -5,23 +5,93 @@
   />
 </head>
 {% extends "base.html" %} {% block content %}
-<h1>Edit Profile</h1>
-<form method="POST" enctype="multipart/form-data">
-  <label>Bio:</label>
-  <textarea name="bio">{{ user.bio }}</textarea><br />
+<div class="container">
+  <h1>Edit Your Profile</h1>
+  <div class="containerWarpper">
+    <form
+      action="{{ url_for('edit_profile') }}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <!-- Profile Image -->
+      <div class="form-group">
+        {% if user.profile_image %}
+        <img
+          id="image_preview"
+          src="{{ url_for('static', filename=user.profile_image) }}"
+          alt="Profile Image"
+          class="profile-image-preview"
+        />
+        {% else %}
+        <img
+          id="image_preview"
+          src="#"
+          alt="Image Preview"
+          class="profile-image-preview"
+          style="display: none"
+        />
+        {% endif %}
+        <label for="profile_image">Profile Image:</label>
+        <input
+          type="file"
+          id="profile_image"
+          name="profile_image"
+          onchange="previewImage(event)"
+        />
+      </div>
+      <!-- Bio -->
+      <div class="form-group">
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" placeholder="Tell us about yourself...">
+{{ user.bio or '' }}</textarea
+        >
+      </div>
 
-  <label>Skills (comma-separated):</label>
-  <input type="text" name="skills" value="{{ user.skills }}" /><br />
+      <!-- Skills -->
+      <div class="form-group">
+        <label for="skills">Skills:</label>
+        <input
+          type="text"
+          id="skills"
+          name="skills"
+          placeholder="e.g. Python, HTML, CSS"
+          value="{{ user.skills or '' }}"
+        />
+      </div>
 
-  <label>Interests (comma-separated):</label>
-  <input type="text" name="interests" value="{{ user.interests }}" /><br />
+      <!-- Interests -->
+      <div class="form-group">
+        <label for="interests">Interests:</label>
+        <input
+          type="text"
+          id="interests"
+          name="interests"
+          placeholder="e.g. Reading, Coding, Music"
+          value="{{ user.interests or '' }}"
+        />
+      </div>
 
-  <label>Profile Image:</label>
-  <input type="file" name="profile_image" /><br />
+      <!-- Actions -->
+      <div class="form-actions">
+        <button type="submit" class="button">Save Profile</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+  // Image preview functionality
+  function previewImage(event) {
+    const imagePreview = document.getElementById("image_preview");
+    const file = event.target.files[0];
 
-  <label>Profile Banner:</label>
-  <input type="file" name="profile_banner" /><br />
-
-  <button type="submit">Save</button>
-</form>
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        imagePreview.src = e.target.result;
+        imagePreview.style.display = "block";
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+</script>
 {% endblock %}

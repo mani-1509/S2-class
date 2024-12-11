@@ -1,0 +1,87 @@
+h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2rem;
+  color: #444;
+}
+
+.container {
+  background-image: url("https://media.istockphoto.com/id/1303182525/photo/abstract-background-white-light-blue-purple-color-gradient-defocused.jpg?s=612x612&w=0&k=20&c=Via5hY-2Ax53av2oaNFSz7N2LfMIdQnAlz89bBV3m5s=");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.containerWarpper {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+input[type="text"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #0078d4;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.profile-image-preview {
+  display: block;
+  margin: 10px auto;
+  max-width: 150px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.button {
+  display: inline-block;
+  background-color: #a38ffd;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #704fff;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 20px;
+}
