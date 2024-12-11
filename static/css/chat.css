@@ -65,7 +65,14 @@
 }
 .you {
   background-color: lightgreen;
+  border-radius: 10px;
+  padding: 0 5px;
 }
 .receiver {
   background-color: rgb(125, 203, 229);
+  border-radius: 10px;
+  padding: 0 5px;
+}
+.footer {
+  display: none;
 }
