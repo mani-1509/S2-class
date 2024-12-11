@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for,se
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO, emit, join_room, leave_room
+from models.model_1 import generate_response
 
 app = Flask(__name__)
 app.secret_key = 'mani1509'
@@ -39,6 +40,25 @@ def home():
     if logged_in:
         user = User.query.get(session['user_id'])
     return render_template('index.html', logged_in=logged_in , user=user)
+
+@app.route('/bot')
+def bot():
+    logged_in = 'user_id' in session
+    user = None
+    if logged_in:
+        user = User.query.get(session['user_id'])
+    return render_template('bot.html', logged_in=logged_in , user=user)
+
+@app.route("/get_response", methods=["POST"])
+def get_response():
+    user_message = request.json.get("message", "")
+    if not user_message:
+        return jsonify({"response": "Please enter a valid message."})
+
+    # Prepare prompt
+    prompt = f"User: {user_message}\nChatBot:"
+    response = generate_response(prompt)
+    return jsonify({"response": response})
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -196,94 +216,4 @@ def users():
 
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True, host='0.0.0.0', port=8000)
-    
-    # current_user_id = session['user_id']
-    # if request.method == 'POST':
-    #     message_content = request.form['message']
-    #     new_message = Message(sender_id=current_user_id, receiver_id=user_id, content=message_content)
-    #     db.session.add(new_message)
-    #     db.session.commit()
-    
-    # messages = Message.query.filter(
-    #     ((Message.sender_id == current_user_id) & (Message.receiver_id == user_id)) |
-    #     ((Message.sender_id == user_id) & (Message.receiver_id == current_user_id))
-    # ).order_by(Message.timestamp).all()
-    
-    # receiver = User.query.get(user_id)
-    # return render_template('chat.html', messages=messages, receiver=receiver)
-
-
-
-# if __name__ == "__main__":
-#     app.run(debug=True)
-
-# from flask import Flask, request, jsonify, render_template, redirect, url_for, send_from_directory, session
-# from werkzeug.security import generate_password_hash, check_password_hash
-# from flask_sqlalchemy import SQLAlchemy
-# from flask_socketio import SocketIO, emit, join_room, leave_room
-
-# app = Flask(__name__)
-# app.secret_key = 'mani1509'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# # db = SQLAlchemy(app)
-# socketio = SocketIO(app)
-
-# class User(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     username = db.Column(db.String(80), nullable=False, unique=True)
-#     password = db.Column(db.String(200), nullable=False)
-#     bio = db.Column(db.Text, nullable=True)
-#     skills = db.Column(db.Text, nullable=True)
-#     interests = db.Column(db.Text, nullable=True)
-#     profile_image = db.Column(db.String(120), nullable=True)
-#     status = db.Column(db.String(20), default='offline')  # online/offline
-
-# with app.app_context():
-#     db.create_all()
-
-# @app.route('/users')
-# def users():
-#     search_query = request.args.get('search', '')
-#     if search_query:
-#         all_users = User.query.filter(User.username.contains(search_query)).all()
-#     else:
-#         all_users = User.query.all()
-#     return render_template('users.html', users=all_users)
-
-# @app.route('/chat/<int:receiver_id>')
-# def chat(receiver_id):
-#     if 'user_id' not in session:
-#         return redirect(url_for('login'))
-#     receiver = User.query.get(receiver_id)
-#     if not receiver:
-#         return redirect(url_for('users'))
-#     return render_template('chat.html', receiver=receiver, sender_id=session['user_id'])
-
-# @socketio.on('join')
-# def handle_join(data):
-#     room = f"chat_{data['sender_id']}_{data['receiver_id']}"
-#     join_room(room)
-
-# @socketio.on('send_message')
-# def handle_message(data):
-#     room = f"chat_{data['sender_id']}_{data['receiver_id']}"
-#     emit('receive_message', data, room=room)
-
-# @app.route('/test')
-# def test():
-#     return render_template('3Dtest.html')
-
-# @app.route('/static/<path:path>')
-# def static_proxy(path):
-#     if path.endswith('.js'):
-#         return send_from_directory('static', path, mimetype='application/javascript')
-#     return send_from_directory('static', path)
-
-# @app.route('/node_modules/<path:path>')
-# def node_modules(path):
-#     return send_from_directory('node_modules', path)
-
-# if __name__ == '__main__':
-#     socketio.run(app, debug=True)
+    socketio.run(app, debug=True, host='0.0.0.0', port=8000 )
