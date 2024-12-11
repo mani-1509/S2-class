@@ -162,9 +162,65 @@
 .allContainer {
   margin-top: 50px;
   font-family: "Poppins", serif;
+  min-height: 100vh;
 }
 .nav-profile-image {
   height: 40px;
   width: 40px;
   border-radius: 500px;
+}
+
+/* Footer */
+.footer {
+  background-color: #2b2b2b;
+  color: white;
+  padding: 30px 20px;
+  font-family: "Poppins", serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  margin: 10px 0;
+}
+.footer-section h2,
+.footer-section h1 {
+  color: #4b0082;
+}
+.footer-section p a {
+  text-decoration: none;
+}
+.brand {
+  width: 30%;
+  /* margin: auto; */
+}
+.footer-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+hr {
+  width: 84%;
+  margin: auto;
+}
+.social-icons .icon {
+  margin-right: 10px;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-link {
+  color: #e9e0ff;
+}
+
+.footer-link:hover {
+  color: #fff;
 }
