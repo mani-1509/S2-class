@@ -3,6 +3,7 @@
     rel="stylesheet"
     href="{{ url_for('static', filename='css/style.css') }}"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 {% extends "base.html" %} {% block content %} {% if not logged_in %}
@@ -19,30 +20,44 @@
         <span class="gradient-text">Connect & Share</span> <br />
         Your Skills With Others
       </h1>
-      <div class="bookImgContainer"><div class="bgEff"></div></div>
+      <div class="bookImgContainer">
+        <div class="bookImgWarpper">
+          <div class="bgEff">
+            <section class="metrics-section">
+              <div class="metric">
+                <p>4.9 <br><span>User Satisfaction</span></p>
+                <span class="icon">
+                  <img class="icon" src="https://cdn-icons-png.freepik.com/256/11710/11710385.png" alt="">
+                </span>
+              </div>
+              <div class="metric">
+                <p>10K+ <br><span>Active Users</span></p>
+                <span class="icon">
+                  <img class="icon" src="https://cdn-icons-png.freepik.com/256/3297/3297684.png" alt="">
+                </span>
+              </div>
+              <div class="metric">
+                <p>5K+ <br><span>Skills Shared</span></p>
+                <span class="icon">
+                  <img class="icon" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSt2AApTu_auhIMnuRibfymFeADCZvG5nCQlb6F7AL7xxspC1LQ" alt="">
+                </span>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      
       <h2>
         A platform where you can interact, showcase your expertise, and learn
         from others around the globe.
       </h2>
       <!-- <button class="explore_btn">Join Now</button> -->
+     
     </div>
   </div>
 
   <!-- Metrics Section -->
-  <!-- <section class="metrics-section">
-    <div class="metric">
-      <span class="icon">&#9733;</span>
-      <span>4.9 User Satisfaction</span>
-    </div>
-    <div class="metric">
-      <span class="icon">&#128101;</span>
-      <span>10K+ Active Users</span>
-    </div>
-    <div class="metric">
-      <span class="icon">&#128218;</span>
-      <span>5K+ Skills Shared</span>
-    </div>
-  </section> -->
+  
 
   <!-- Collaboration Section -->
   <div class="collaborationContainer">
@@ -87,7 +102,7 @@
           </div>
         </div>
         <div class="feature">
-          <img class="featureLogo" src="https://images.samsung.com/is/image/samsung/assets/us/smart-switch/images/quick_share.png?nocache" alt="">
+          <img class="featureLogo1" src="https://images.samsung.com/is/image/samsung/assets/us/smart-switch/images/quick_share.png?nocache" alt="">
           <h2>Share Your Skills</h2>
           <p>
             Showcase your expertise by displaying your skills and projects on your
@@ -97,7 +112,7 @@
       </div>
       <div class="features">
         <div class="feature">
-          <img class="featureLogo" src="https://cdn-icons-png.flaticon.com/512/5721/5721507.png" alt="">
+          <img class="featureLogo2" src="https://cdn-icons-png.flaticon.com/512/5721/5721507.png" alt="">
           <h2>Interact With Others</h2>
           <p>
             Chat and collaborate with users who share your interests or want to
@@ -105,7 +120,7 @@
           </p>
         </div>
         <div class="feature">
-          <img class="featureLogo" src="https://cdn-icons-png.flaticon.com/512/3773/3773377.png" alt="">
+          <img class="featureLogo3" src="https://cdn-icons-png.flaticon.com/512/3773/3773377.png" alt="">
           <h2>Grow Your Network</h2>
           <p>
             Expand your professional and personal network by connecting with
@@ -200,39 +215,7 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="footer-container">
-        <div class="footer-section brand">
-          <h1 class="footer-title">SkillShare Connect</h1>
-          <p>
-            A community-driven platform where skills meet collaboration. Start
-            your journey with us today!
-          </p>
-          <div class="social-icons">
-            <a href="#" class="icon instagram" aria-label="Instagram"></a>
-            <a href="#" class="icon linkedin" aria-label="LinkedIn"></a>
-            <a href="#" class="icon twitter" aria-label="Twitter"></a>
-          </div>
-        </div>
-        <div class="footer-section contact">
-          <h2>Contact</h2>
-          <p>
-            <a href="mailto:support@skillshareconnect.com"
-              >support@skillshareconnect.com</a
-            >
-          </p>
-          <p><a href="tel:+123456789">+123 456 789</a></p>
-        </div>
-        <div class="footer-section office">
-          <h2>Office Hours</h2>
-          <p>Monday - Friday: 9 AM - 6 PM</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy;2024 SkillShare. All rights reserved.</p>
-      </div>
-    </footer>
+    
   </div>
 <script>
 function toggleFaq(questionElement) {
