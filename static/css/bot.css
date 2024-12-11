@@ -1,0 +1,74 @@
+.chatBotContainer {
+  background-image: url("https://img.freepik.com/premium-photo/robot-chatting-isolated-violet-background-chatbot-surrounded-by-multiple-speech-bubbles_690082-32660.jpg");
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chatBotWapper {
+  width: 500px;
+  /* margin: auto; */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.chat-box {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  height: 300px;
+  overflow-y: scroll;
+  background-color: #e9e0ff;
+  border: 2px solid #6441ff;
+}
+
+.message {
+  margin: 10px 0;
+}
+
+.user-message {
+  text-align: right;
+  color: blue;
+}
+
+.bot-message {
+  text-align: left;
+  color: green;
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #e9e0ff;
+  color: #444;
+  border-radius: 20px;
+  border: 2px solid #6441ff;
+}
+
+button {
+  width: 18%;
+  padding: 10px;
+  background-color: #a38ffd;
+  box-shadow: 5px 5px 15px #a38ffd;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #ad3aff;
+}

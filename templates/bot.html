@@ -1,0 +1,23 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/bot.css') }}"
+  />
+</head>
+{% extends "base.html" %} {% block content %}
+<div class="chatBotContainer">
+  <div class="chatBotWapper">
+    <h1>🤖 ChatBot</h1>
+    <div class="chat-box" id="chat-box"></div>
+    <input
+      type="text"
+      id="user-input"
+      placeholder="Type your message here..."
+      autofocus
+    />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/bot.js') }}"></script>
+{% endblock %}
