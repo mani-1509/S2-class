@@ -53,7 +53,7 @@ Make sure you have the following installed:
 
    ```bash
    git clone https://github.com/mani1509/S2-class.git
-   cd skillshare-connect
+   cd S2-class
    ```
 
 2. **Set up a Virtual Environment**
