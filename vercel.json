@@ -1,4 +1,11 @@
 {
   "builds": [{ "src": "app.py", "use": "@vercel/python" }],
-  "routes": [{ "src": "/(.*)", "dest": "app.py" }]
+  "routes": [
+    {
+      "src": "/socket.io/",
+      "dest": "app.py",
+      "headers": { "Connection": "Upgrade", "Upgrade": "websocket" }
+    },
+    { "src": "/(.*)", "dest": "app.py" }
+  ]
 }
