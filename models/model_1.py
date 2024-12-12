@@ -2,17 +2,22 @@ import requests
 import time
 
 # Configuration
-API_KEY = "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"  # Replace with your HuggingFace API key
+API_KEY = "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"  
 API_URL = "https://api-inference.huggingface.co/models/Qwen/QwQ-32B-Preview"
 
-# Function to generate chatbot responses
 def generate_response(prompt, retries=5, delay=15):
     headers = {"Authorization": f"Bearer {API_KEY}"}
+    role_description = (
+        "You are an expert chatbot assistant named 'InfoBot'. "
+        "You can provide detailed, clear, and concise answers on a wide variety of topics, "
+        "including science, technology, history, and current events. "
+        "You respond in a funny , friendly and helpful tone."
+    )
     payload = {
-        "inputs": prompt,
+        "inputs":f"{role_description}\nUser: {prompt}\nChatBot:",
         "parameters": {
             "do_sample": True,
-            "temperature": 0.7,
+            "temperature": 0.5,
             "top_p": 0.9,
             "repetition_penalty": 1.5,
         },
@@ -24,9 +29,7 @@ def generate_response(prompt, retries=5, delay=15):
 
             if response.status_code == 200:
                 result = response.json()
-                # Validate and clean output
                 if isinstance(result, list) and "generated_text" in result[0]:
-                    # Extract chatbot response after 'ChatBot:'
                     bot_response = result[0]["generated_text"].split("ChatBot:")[-1].strip()
                     return bot_response if bot_response else "I’m sorry, I couldn’t generate a response."
 
